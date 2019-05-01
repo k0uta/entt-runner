@@ -3,7 +3,7 @@ project(EnTT_Runner)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(EnTT_Runner main.cpp)
+add_executable(EnTT_Runner src/main.cpp)
 
 # EnTT
 add_subdirectory("${CMAKE_SOURCE_DIR}/External/entt" EXCLUDE_FROM_ALL)
@@ -11,6 +11,5 @@ target_include_directories(EnTT_Runner PRIVATE "${CMAKE_SOURCE_DIR}/External/ent
 
 # SDL2
 add_subdirectory("${CMAKE_SOURCE_DIR}/External/SDL2" EXCLUDE_FROM_ALL)
-target_include_directories(EnTT_Runner PRIVATE "${CMAKE_SOURCE_DIR}/External/SDL2/include")
-
+add_compile_definitions(SDL_MAIN_HANDLED)
 target_link_libraries(EnTT_Runner SDL2-static SDL2main)
