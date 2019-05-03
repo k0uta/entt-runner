@@ -3,7 +3,7 @@ project(EnTT_Runner)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(EnTT_Runner src/main.cpp src/core/app.cpp src/core/app.hpp)
+add_executable(EnTT_Runner src/main.cpp src/core/app.cpp src/core/app.hpp src/components/position.hpp src/core/game.cpp src/core/game.hpp)
 
 # EnTT
 add_subdirectory("${PROJECT_SOURCE_DIR}/External/entt" EXCLUDE_FROM_ALL)
