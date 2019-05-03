@@ -18,3 +18,13 @@ target_link_libraries(EnTT_Runner SDL2-static SDL2main)
 target_compile_definitions(EnTT_Runner PRIVATE STB_IMAGE_IMPLEMENTATION)
 target_include_directories(EnTT_Runner PRIVATE "${PROJECT_SOURCE_DIR}/External/stb")
 target_link_directories(EnTT_Runner PRIVATE "${PROJECT_SOURCE_DIR}/External/stb")
+
+# Resources - Thanks to: http://qrikko.blogspot.com/2016/05/cmake-and-how-to-copy-resources-during.html
+set (source "${PROJECT_SOURCE_DIR}/resources")
+set (destination "${CMAKE_CURRENT_BINARY_DIR}/resources")
+add_custom_command(
+        TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E create_symlink ${source} ${destination}
+        DEPENDS ${destination}
+        COMMENT "symbolic link resources folder from ${source} => ${destination}"
+)
