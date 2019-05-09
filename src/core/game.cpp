@@ -1,9 +1,10 @@
 #include "game.hpp"
 #include "../components/transform.hpp"
 #include "../components/render.hpp"
+#include "../systems/transform_systems.hpp"
 
 void Game::update(float deltaTime) {
-
+    look_at_system(registry);
 }
 
 void Game::render(SDL_Renderer *renderer) {
