@@ -1,6 +1,7 @@
 #include "game.hpp"
 #include "../components/transform.hpp"
 #include "../components/render.hpp"
+#include "../systems/sprite_load.hpp"
 #include "../systems/transform_systems.hpp"
 
 void Game::update(float deltaTime) {
@@ -8,7 +9,7 @@ void Game::update(float deltaTime) {
 }
 
 void Game::render(SDL_Renderer *renderer) {
-
+    sprite_load(registry, renderer);
 }
 
 void Game::input(SDL_Event event) {
