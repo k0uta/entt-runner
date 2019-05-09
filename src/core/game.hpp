@@ -14,6 +14,10 @@ public:
 
     void init();
 
+    int screen_width;
+
+    int screen_height;
+
 protected:
     entt::registry registry;
 };

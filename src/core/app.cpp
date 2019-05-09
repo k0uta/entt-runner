@@ -20,6 +20,8 @@ void App::run() {
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     auto game = new Game();
+    game->screen_width = width;
+    game->screen_height = height;
     game->init();
 
     auto fpsDeltaTime = 1000.f / fps;
