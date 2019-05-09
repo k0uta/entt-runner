@@ -14,6 +14,8 @@ add_executable(
         src/components/transform.hpp
         src/systems/sprite_load.cpp
         src/systems/sprite_load.hpp
+        src/systems/sprite_render.cpp
+        src/systems/sprite_render.hpp
         src/systems/transform_systems.cpp
         src/systems/transform_systems.hpp
 )

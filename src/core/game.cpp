@@ -1,6 +1,7 @@
 #include "game.hpp"
 #include "../components/transform.hpp"
 #include "../components/render.hpp"
+#include "../systems/sprite_render.hpp"
 #include "../systems/sprite_load.hpp"
 #include "../systems/transform_systems.hpp"
 
@@ -9,7 +10,14 @@ void Game::update(float deltaTime) {
 }
 
 void Game::render(SDL_Renderer *renderer) {
+    // TODO: Move to some kind of resource systems lane?
     sprite_load(registry, renderer);
+
+    auto camera_position = registry.get<position>(registry.view<main_camera>()[0]);
+    camera_position.x -= screen_width / 2;
+    camera_position.y -= screen_height / 2;
+
+    sprite_render(registry, renderer, camera_position);
 }
 
 void Game::input(SDL_Event event) {
