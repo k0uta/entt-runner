@@ -20,6 +20,7 @@ void App::run() {
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     auto game = new Game();
+    game->init();
 
     auto fpsDeltaTime = 1000.f / fps;
 
@@ -54,6 +55,8 @@ void App::run() {
 
         SDL_RenderPresent(renderer);
     }
+
+    delete(game);
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);

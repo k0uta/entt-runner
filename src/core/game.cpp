@@ -11,3 +11,6 @@ void Game::render(SDL_Renderer *renderer) {
 void Game::input(SDL_Event event) {
 
 }
+
+void Game::init() {
+}

@@ -1,9 +1,7 @@
 #ifndef ENTT_RUNNER_GAME_HPP
 #define ENTT_RUNNER_GAME_HPP
 
-
-#include <SDL_render.h>
-#include <SDL_events.h>
+#include <SDL.h>
 
 class Game {
 public:
@@ -12,6 +10,8 @@ public:
     void render(SDL_Renderer *renderer);
 
     void input(SDL_Event event);
+
+    void init();
 };
 
 
