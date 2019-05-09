@@ -11,6 +11,7 @@ add_executable(
         src/core/game.cpp
         src/core/game.hpp
         src/components/render.hpp
+        src/components/transform.hpp
 )
 
 # EnTT
