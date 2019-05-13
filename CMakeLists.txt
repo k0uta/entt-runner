@@ -27,12 +27,17 @@ target_include_directories(EnTT_Runner PRIVATE "${CMAKE_SOURCE_DIR}/External/ent
 # SDL2
 add_subdirectory("${PROJECT_SOURCE_DIR}/External/SDL2" EXCLUDE_FROM_ALL)
 add_compile_definitions(SDL_MAIN_HANDLED)
-target_link_libraries(EnTT_Runner SDL2-static SDL2main)
+target_link_libraries(EnTT_Runner PRIVATE SDL2-static SDL2main)
 
 # STB
 target_compile_definitions(EnTT_Runner PRIVATE STB_IMAGE_IMPLEMENTATION)
 target_include_directories(EnTT_Runner PRIVATE "${PROJECT_SOURCE_DIR}/External/stb")
 target_link_directories(EnTT_Runner PRIVATE "${PROJECT_SOURCE_DIR}/External/stb")
+
+# PugiXML
+set(BUILD_SHARED_AND_STATIC_LIBS ON)
+add_subdirectory("${PROJECT_SOURCE_DIR}/External/pugixml" EXCLUDE_FROM_ALL)
+target_link_libraries(EnTT_Runner PRIVATE pugixml-static)
 
 # Resources - Thanks to: http://qrikko.blogspot.com/2016/05/cmake-and-how-to-copy-resources-during.html
 set (source "${PROJECT_SOURCE_DIR}/resources")
