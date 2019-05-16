@@ -4,8 +4,8 @@
 #include <entt/entt.hpp>
 
 struct position {
-    int x;
-    int y;
+    float x;
+    float y;
 };
 
 struct look_at {

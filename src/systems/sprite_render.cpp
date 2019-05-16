@@ -7,8 +7,8 @@ void sprite_render(entt::registry &registry, SDL_Renderer *renderer, position ca
         auto position_component = view.get<position>(entity);
 
         auto source_rect = sprite_component.source_rect;
-        source_rect.x = position_component.x - camera_position.x;
-        source_rect.y = position_component.y - camera_position.y;
+        source_rect.x = (int) (position_component.x - camera_position.x);
+        source_rect.y = (int) (position_component.y - camera_position.y);
 
         SDL_RenderCopy(renderer, sprite_component.texture, NULL, &source_rect);
     }
