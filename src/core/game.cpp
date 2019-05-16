@@ -4,9 +4,13 @@
 #include "../systems/sprite_render.hpp"
 #include "../systems/sprite_load.hpp"
 #include "../systems/transform_systems.hpp"
+#include "../components/physics.hpp"
+#include "../systems/physics_systems.hpp"
 
 void Game::update(float deltaTime) {
     look_at_system(registry);
+    gravity_system(registry, deltaTime);
+    speed_system(registry, deltaTime);
 }
 
 void Game::render(SDL_Renderer *renderer) {
@@ -28,6 +32,8 @@ void Game::init() {
     auto player = registry.create();
     registry.assign<position>(player, screen_width / 2.f, screen_height / 2.f);
     registry.assign<sprite_loader>(player, "resources/character/platformChar_idle.png");
+    registry.assign<speed>(player, 0.f, 0.f);
+    registry.assign<body>(player, 4.0f);
 
     auto camera = registry.create();
     registry.assign<main_camera>(camera);

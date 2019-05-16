@@ -47,7 +47,7 @@ void App::run() {
 
         while(accumulator >= fpsDeltaTime) {
             accumulator -= fpsDeltaTime;
-            game->update(fpsDeltaTime);
+            game->update(fpsDeltaTime/1000.f);
         }
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
