@@ -10,6 +10,7 @@ add_executable(
         src/core/app.hpp
         src/core/game.cpp
         src/core/game.hpp
+        src/components/physics.hpp
         src/components/render.hpp
         src/components/transform.hpp
         src/systems/sprite_load.cpp
