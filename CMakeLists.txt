@@ -19,6 +19,8 @@ add_executable(
         src/systems/sprite_render.hpp
         src/systems/transform_systems.cpp
         src/systems/transform_systems.hpp
+        src/systems/physics_systems.cpp
+        src/systems/physics_systems.hpp
 )
 
 # EnTT
