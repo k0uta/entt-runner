@@ -14,8 +14,8 @@ void Game::render(SDL_Renderer *renderer) {
     sprite_load(registry, renderer);
 
     auto camera_position = registry.get<position>(registry.view<main_camera>()[0]);
-    camera_position.x -= screen_width / 2;
-    camera_position.y -= screen_height / 2;
+    camera_position.x -= (float) screen_width / 2.f;
+    camera_position.y -= (float) screen_height / 2.f;
 
     sprite_render(registry, renderer, camera_position);
 }
@@ -26,7 +26,7 @@ void Game::input(SDL_Event event) {
 
 void Game::init() {
     auto player = registry.create();
-    registry.assign<position>(player, screen_width / 2, screen_height / 2);
+    registry.assign<position>(player, screen_width / 2.f, screen_height / 2.f);
     registry.assign<sprite_loader>(player, "resources/character/platformChar_idle.png");
 
     auto camera = registry.create();
