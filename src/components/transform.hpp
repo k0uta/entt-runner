@@ -9,7 +9,7 @@ struct position {
 };
 
 struct look_at {
-    entt::entity *target;
+    entt::entity target;
 };
 
 typedef entt::tag<"main_camera"_hs> main_camera;

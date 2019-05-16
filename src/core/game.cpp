@@ -32,5 +32,5 @@ void Game::init() {
     auto camera = registry.create();
     registry.assign<main_camera>(camera);
     registry.assign<position>(camera);
-    registry.assign<look_at>(camera, &player);
+    registry.assign<look_at>(camera, player);
 }

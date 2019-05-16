@@ -7,7 +7,7 @@ void look_at_system(entt::registry &registry) {
     for(auto entity: view) {
         auto follow_component = view.get<look_at>(entity);
 
-        auto target_entity = *follow_component.target;
+        auto target_entity = follow_component.target;
         auto target_position = registry.get<position>(target_entity);
 
         // I don't know if using this is quite right, maybe in the future some kind of size component?
