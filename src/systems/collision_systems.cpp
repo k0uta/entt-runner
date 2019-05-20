@@ -27,3 +27,44 @@ void box_collider_update_system(entt::registry &registry) {
         box_collider_component.yMax = yMin + sprite_component.source_rect.h;
     }
 }
+
+void box_collider_collision_system(entt::registry &registry) {
+    auto view = registry.view<box_collider, movement>();
+    auto other_view = registry.view<box_collider>();
+
+    for (auto entity : view) {
+        auto box_collider_component = view.get<box_collider>(entity);
+
+        for (auto other_entity : other_view) {
+            if (other_entity == entity) {
+                continue;
+            }
+
+            auto other_box_collider_component = other_view.get(other_entity);
+
+            if (box_collider_component.xMax < other_box_collider_component.xMin ||
+                box_collider_component.xMin > other_box_collider_component.xMax) {
+                continue;
+            }
+            if (box_collider_component.yMax < other_box_collider_component.yMin ||
+                box_collider_component.yMin > other_box_collider_component.yMax) {
+                continue;
+            }
+
+            auto &box_collisions_component = registry.get<box_collisions>(entity);
+
+            box_collision collision_info{
+                    other_entity,
+                    box_collider_component.xMax - other_box_collider_component.xMin,
+                    box_collider_component.yMax - other_box_collider_component.yMin
+            };
+            box_collisions_component.collisions.push_back(collision_info);
+        }
+    }
+}
+
+void clean_collisions_system(entt::registry &registry) {
+    registry.view<box_collisions>().each([](auto &box_collisions_component) {
+        box_collisions_component.collisions.clear();
+    });
+}
