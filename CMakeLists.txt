@@ -10,17 +10,20 @@ add_executable(
         src/core/app.hpp
         src/core/game.cpp
         src/core/game.hpp
+        src/components/collision.hpp
         src/components/physics.hpp
         src/components/render.hpp
         src/components/transform.hpp
+        src/systems/collision_systems.cpp
+        src/systems/collision_systems.hpp
+        src/systems/physics_systems.cpp
+        src/systems/physics_systems.hpp
         src/systems/sprite_load.cpp
         src/systems/sprite_load.hpp
         src/systems/sprite_render.cpp
         src/systems/sprite_render.hpp
         src/systems/transform_systems.cpp
         src/systems/transform_systems.hpp
-        src/systems/physics_systems.cpp
-        src/systems/physics_systems.hpp
 )
 
 # EnTT
