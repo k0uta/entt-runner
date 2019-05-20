@@ -68,3 +68,36 @@ void clean_collisions_system(entt::registry &registry) {
         box_collisions_component.collisions.clear();
     });
 }
+
+void ground_collision_system(entt::registry &registry) {
+    auto view = registry.view<box_collisions, movement, speed>();
+    for (auto entity: view) {
+        auto collisions = view.get<box_collisions>(entity).collisions;
+
+        float yDiff = 0.f;
+
+        for (auto collision_info: collisions) {
+            // Check ground
+            yDiff = std::max(yDiff, collision_info.yDiff);
+        }
+
+        auto hasGrounded = registry.has<grounded>(entity);
+
+        if (yDiff > 0.f && !hasGrounded) {
+            registry.assign<grounded>(entity);
+            hasGrounded = true;
+        } else if (yDiff == 0.f && hasGrounded) {
+            registry.remove<grounded>(entity);
+            hasGrounded = false;
+        }
+
+        if (hasGrounded) {
+            auto &movement_component = view.get<movement>(entity);
+            auto &speed_component = view.get<speed>(entity);
+
+            movement_component.y -= yDiff;
+            speed_component.y = 0.f;
+        }
+
+    }
+}

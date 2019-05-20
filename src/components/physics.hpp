@@ -10,4 +10,6 @@ struct speed {
     float y;
 };
 
+typedef entt::tag<"grounded"_hs> grounded;
+
 #endif //ENTT_RUNNER_PHYSICS_HPP

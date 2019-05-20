@@ -9,4 +9,6 @@ void box_collider_collision_system(entt::registry &registry);
 
 void clean_collisions_system(entt::registry &registry);
 
+void ground_collision_system(entt::registry &registry);
+
 #endif //ENTT_RUNNER_COLLISION_SYSTEMS_HPP

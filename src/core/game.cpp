@@ -6,11 +6,22 @@
 #include "../systems/transform_systems.hpp"
 #include "../components/physics.hpp"
 #include "../systems/physics_systems.hpp"
+#include "../components/collision.hpp"
+#include "../systems/collision_systems.hpp"
 
 void Game::update(float deltaTime) {
     look_at_system(registry);
     gravity_system(registry, deltaTime);
     speed_system(registry, deltaTime);
+
+    box_collider_update_system(registry);
+    box_collider_collision_system(registry);
+
+    ground_collision_system(registry);
+
+    clean_collisions_system(registry);
+
+    perform_movement_system(registry);
 }
 
 void Game::render(SDL_Renderer *renderer) {
