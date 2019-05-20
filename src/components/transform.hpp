@@ -8,6 +8,11 @@ struct position {
     float y;
 };
 
+struct movement {
+    float x;
+    float y;
+};
+
 struct look_at {
     entt::entity target;
 };

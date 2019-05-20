@@ -11,8 +11,8 @@ void gravity_system(entt::registry &registry, float deltaTime) {
 }
 
 void speed_system(entt::registry &registry, float deltaTime) {
-    registry.view<position, speed>().each([=](auto &position_component, auto &speed_component) {
-        position_component.x += speed_component.x * deltaTime;
-        position_component.y += speed_component.y * deltaTime;
+    registry.view<movement, speed>().each([=](auto &movement_component, auto &speed_component) {
+        movement_component.x += speed_component.x * deltaTime;
+        movement_component.y += speed_component.y * deltaTime;
     });
 }

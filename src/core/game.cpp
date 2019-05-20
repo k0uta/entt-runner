@@ -31,6 +31,7 @@ void Game::input(SDL_Event event) {
 void Game::init() {
     auto player = registry.create();
     registry.assign<position>(player, screen_width / 2.f, screen_height / 2.f);
+    registry.assign<movement>(player, 0.f, 0.f);
     registry.assign<sprite_loader>(player, "resources/character/platformChar_idle.png");
     registry.assign<speed>(player, 0.f, 0.f);
     registry.assign<body>(player, 4.0f);
