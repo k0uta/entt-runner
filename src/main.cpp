@@ -10,7 +10,7 @@ int main() {
         std::cout << e.what() << '\n';
         return 1;
     }
-    delete(app);
+    delete (app);
 
     return 0;
 }

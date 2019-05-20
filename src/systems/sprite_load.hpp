@@ -7,6 +7,6 @@
 
 void sprite_load(entt::registry &registry, SDL_Renderer *renderer);
 
-sprite create_sprite(SDL_Renderer* renderer, const char *filename);
+sprite create_sprite(SDL_Renderer *renderer, const char *filename);
 
 #endif //ENTT_RUNNER_SPRITE_LOAD_HPP

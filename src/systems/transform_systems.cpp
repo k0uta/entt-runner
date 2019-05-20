@@ -4,7 +4,7 @@
 
 void look_at_system(entt::registry &registry) {
     auto view = registry.view<position, look_at>();
-    for(auto entity: view) {
+    for (auto entity: view) {
         auto follow_component = view.get<look_at>(entity);
 
         auto target_entity = follow_component.target;

@@ -4,7 +4,7 @@
 
 class App {
 public:
-    const char*appName = "EnTT Runner";
+    const char *appName = "EnTT Runner";
 
     int width = 1280;
 
