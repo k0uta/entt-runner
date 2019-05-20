@@ -44,11 +44,20 @@ void Game::init() {
     registry.assign<position>(player, screen_width / 2.f, screen_height / 2.f);
     registry.assign<movement>(player, 0.f, 0.f);
     registry.assign<sprite_loader>(player, "resources/character/platformChar_idle.png");
-    registry.assign<speed>(player, 0.f, 0.f);
-    registry.assign<body>(player, 4.0f);
+    registry.assign<speed>(player, 300.f, 0.f);
+    registry.assign<body>(player, 100.0f);
+    registry.assign<box_collider>(player);
+    registry.assign<box_collisions>(player);
 
     auto camera = registry.create();
     registry.assign<main_camera>(camera);
     registry.assign<position>(camera);
     registry.assign<look_at>(camera, player);
+
+    for (int i = 0; i < 100; ++i) {
+        auto tileBlock = registry.create();
+        registry.assign<position>(tileBlock, i * 64.f, (float) screen_height);
+        registry.assign<sprite_loader>(tileBlock, "resources/tiles/tileBlue_05.png");
+        registry.assign<box_collider>(tileBlock);
+    }
 }
